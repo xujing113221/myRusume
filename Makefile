@@ -6,14 +6,14 @@ RESUMEDE_OUT=JingXu_Lebenslauf_2020
 
 RESUMEEN=resume_en
 
-.PHONY: cover_de resume_de clean depclean
+.PHONY: cover_de resume_de clean depclean 
 
 #-----------------------------------------------------------
 # cover_de
 #-----------------------------------------------------------
 cover_de : $(COVERDE_OUT).pdf
 
-$(COVERDE_OUT).pdf: $(COVERDE_IN).tex
+$(COVERDE_OUT).pdf: $(COVERDE_IN).tex 
 	lualatex -synctex=1 -interaction=nonstopmode $(COVERDE_IN).tex
 	mv $(COVERDE_IN).pdf $(COVERDE_OUT).pdf
 

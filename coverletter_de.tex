@@ -79,10 +79,12 @@
 %	LETTER INFORMATION
 %	All of the below lines must be filled out
 %-------------------------------------------------------------------------------
-\newcommand{\recname}{Company Recruitment Team}
-\newcommand{\companyname}{Google Inc.}
-\newcommand{\companyaddress}{Helstorfel Str. 23}
-\newcommand{\companylocal}{30625, Hannover}
+\providecommand{\recname}{Company Recruitment Team}
+\providecommand{\companyname}{Google Inc.}
+\providecommand{\companyaddress}{Helstorfel Str. 23}
+\providecommand{\companylocal}{30625, Hannover}
+\providecommand{\applicatename}{Bewerbung für die Praktikumsstelle als XXXXX (Nr. 798288)}
+\providecommand{\letterbegin}{Sehr geehrte Damen und Herren,}
 % The company being applied to
 \recipient
   {\recname}
@@ -90,9 +92,9 @@
 % The date on the letter, default is the date of compilation
 \letterdate{\today}
 % The title of the letter
-\lettertitle{Bewerbung für die Praktikumsstelle als XXXXX (Nr. 798288)}
+\lettertitle{\applicatename}
 % How the letter is opened
-\letteropening{Sehr geehrte Damen und Herren, (Sehr geehrter Herr Familienname oder sehr geehrte Frau Familienname)}
+\letteropening{\letterbegin}
 % How the letter is closed
 \letterclosing{Mit freundlichen Grüßen}
 % Any enclosures with the letter
@@ -122,7 +124,7 @@
 \begin{cvletter}
 
 
-ich bin sehr interessiert an der Praktikumsstelle als XXXXX und reiche deshalb meine Bewerbung ein.\\\\
+ich bin sehr interessiert an der Praktikumsstelle als \applicatename und reiche deshalb meine Bewerbung ein.\\\\
 Ich studiere jetzt im 3. Semester an der Leibniz Universität Hannover (LUH) den Masterstudiengang " Elektrotechnik und Informationstechnik " mit dem Schwerpunkt "Computer Engineering". Im Jahr 2017 schloss ich erfolgreich den Bachelor Science in Biomedizintechnik an der Xidian Universität in China ab.\\\\
 Als ich 2013 mit meinem Bachelor begann, nahm ich am 25. Xinghuo-Cup-Wettbewerb für Elektronik an der Xidian Universität teil, was mein großes Interesse an der praktischen Umsetzung von Elektronik- und Computertechnik hervorrief. Es erregte meinen Wunsch, mich auch in Deutschland weiterzuentwickeln.\\\\
 Um mich in diesem Bereich der Elektronik und Informatik weiterzuentwickeln, habe ich mir parallel zum Hauptstudium das Wissen, das Know-how und die technischen Werkzeuge (mechanische Konstruktion, Hard- und Softwareentwicklung) selbst angeeignet.\\\\
