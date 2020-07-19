@@ -1,0 +1,10 @@
+*~ \
+*.aux \
+*.bbl \
+*.blg \
+*.log \
+*.out \
+*.bcf \
+*.xml \
+*.gz \
+.DS_Store
