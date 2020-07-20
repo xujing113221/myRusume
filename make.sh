@@ -23,6 +23,7 @@ getInfo(){
     echo ""
 
     echo "=== Please tell me the information of your applicated Company:"
+    read -p "Recipient: " recname
     read -p "Name: " comname
     read -p "Address: " addr
     read -p "Postcode, location: " loc
@@ -39,11 +40,11 @@ getInfo(){
     if [ $num -eq 2 ]
     then
     read -p "Tell me the name: " hrname
-    lettertitle="Sehr geehrter Herr $hrname"
+    lettertitle="Sehr geehrter Herr $hrname,"
     elif [ $num -eq 3 ]
     then
     read -p "Tell me the name: " hrname
-    lettertitle="Sehr geehrter Herr $hrname"
+    lettertitle="Sehr geehrte Frau $hrname,"
     fi
 
     echo ""
@@ -55,6 +56,12 @@ getInfo(){
     fi
 
     cmd="\newcommand{\letterbegin}{${lettertitle}} ${cmd}"
+
+    if [ -n "$recname" ]
+    then
+    cmd="\newcommand{\recname}{${recname}} ${cmd}"
+    fi
+
     if [ -n "$comname" ] # 必须两边空格
     then
     cmd="\newcommand{\companyname}{${comname}} ${cmd}" #赋值必须紧贴等号

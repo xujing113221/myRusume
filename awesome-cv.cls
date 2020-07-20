@@ -757,9 +757,8 @@
 		\recipientaddressstyle{\@recipientaddress} \\
 	\end{singlespace}
 	\begin{flushright}
-		\vspace{-0.5cm}
+		\vspace{-1.0cm}
 		\textbf{\letterdatestyle{\@letterdate}}
-		\vspace{0.5cm}
 	\end{flushright}
 	\ifthenelse{\isundefined{\@lettertitle}}
 	{}
