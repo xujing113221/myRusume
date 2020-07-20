@@ -2,6 +2,7 @@
 
 ## Issues
 + cover letter 自动换行问题
++ 日期显示问题
 
 https://seisman.github.io/how-to-write-makefile/overview.html
 

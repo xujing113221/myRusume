@@ -19,7 +19,9 @@
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, a4paper]{awesome-cv}
-\usepackage[english,ngerman]{babel}
+%\usepackage[english,ngerman]{babel}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
@@ -55,7 +57,7 @@
 \photo[circle,noedge,right]{./xujing.jpg}
 \name{Jing}{Xu}
 %\position{Software Architect{\enskip\cdotp\enskip}Security Expert}
-\address{Nordfelder Reihe 4C, 30159, Hannover, Deutschland}
+\address{Nordfelder Reihe 4C, 30159, Hannover, Germany}
 
 \mobile{(+49) 15202178266}
 \email{jing.xu@stud.uni-hannover.de}
@@ -87,7 +89,7 @@
 % Leave any of these blank if they are not needed
 \makecvfooter
   {\today}
-  {Jing Xu~~~·~~~Lebenslauf}
+  {Jing Xu~~~·~~~Resume}
   {\thepage}
 
 
@@ -95,13 +97,14 @@
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-\input{resume_de/objective}
-\input{resume_de/education}
-\input{resume_de/skills}
-\input{resume_de/experience}
-\input{resume_de/others}
-\input{resume_de/training}
-\input{resume_de/honors}
+\input{resume_en/objective}
+\input{resume_en/education}
+\input{resume_en/skills}
+\input{resume_en/experience}
+\input{resume_en/training}
+\input{resume_en/projects}
+\input{resume_en/others}
+\input{resume_en/honors}
 
 %-------------------------------------------------------------------------------
 \end{document}
