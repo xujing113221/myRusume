@@ -1,5 +1,8 @@
 ## this my resume and cover letter in English an Germany
 
+## Issues
++ cover letter 自动换行问题
+
 https://seisman.github.io/how-to-write-makefile/overview.html
 
 [makefile专题：函数定义及调用](https://www.jianshu.com/p/46dc6e146014)
