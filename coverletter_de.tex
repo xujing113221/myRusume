@@ -19,12 +19,15 @@
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, a4paper]{awesome-cv}
+\usepackage[english,ngerman]{babel}
 \usepackage{fontawesome}
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
 % Specify the location of the included fonts
 \fontdir[fonts/]
+
+
 
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
@@ -37,15 +40,14 @@
 % Uncomment if you would like to specify your own color
 % \definecolor{darktext}{HTML}{414141}
 % \definecolor{text}{HTML}{333333}
-% \definecolor{graytext}{HTML}{5D5D5D}
-% \definecolor{lighttext}{HTML}{999999}
+ \definecolor{graytext}{HTML}{222222}
+ \definecolor{lighttext}{HTML}{5D5D5D}
 
 % Set false if you don't want to highlight section with awesome color
 \setbool{acvSectionColorHighlight}{true}
 
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
-
 
 %-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
@@ -79,11 +81,11 @@
 %	LETTER INFORMATION
 %	All of the below lines must be filled out
 %-------------------------------------------------------------------------------
-\providecommand{\recname}{Company Recruitment Team}
+\providecommand{\recname}{}
 \providecommand{\companyname}{Google Inc.}
 \providecommand{\companyaddress}{Helstorfel Str. 23}
-\providecommand{\companylocal}{30625, Hannover}
-\providecommand{\applicatename}{Bewerbung für die Praktikumsstelle als XXXXX (Nr. 798288)}
+\providecommand{\companylocal}{}
+\providecommand{\applicatename}{XXXXX (Nr. xxx)}
 \providecommand{\letterbegin}{Sehr geehrte Damen und Herren,}
 % The company being applied to
 \recipient
@@ -92,13 +94,13 @@
 % The date on the letter, default is the date of compilation
 \letterdate{\today}
 % The title of the letter
-\lettertitle{\applicatename}
+\lettertitle{Bewerbung für die Praktikumsstelle als \applicatename}
 % How the letter is opened
 \letteropening{\letterbegin}
 % How the letter is closed
 \letterclosing{Mit freundlichen Grüßen}
 % Any enclosures with the letter
-\letterenclosure[i.A.]{Lebenslauf\\ Bescheinigungen\\ Überblick über meine technischen Innovationen\\ Immatrikulationsbescheinigung}
+\letterenclosure[i.A.]{Lebenslauf\\ Bescheinigungen \\Notenspiegel \\Zeugnissen\\Überblick über meine technischen Innovationen }
 
 
 %-------------------------------------------------------------------------------
@@ -112,7 +114,7 @@
 % Leave any of these blank if they are not needed
 \makecvfooter
   {\today}
-  {Jing Xu~~~·~~~Cover Letter}
+  {Jing Xu~~~·~~~Anschreiben}
   {}
 
 % Print the title with above letter informations

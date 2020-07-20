@@ -462,7 +462,7 @@
       \ifthenelse{\isundefined{\@mobile}}%
         {}%
         {%
-          \faMobile\acvHeaderIconSep\@mobile%
+          \faPhoneSquare\acvHeaderIconSep\@mobile%
           \setbool{isstart}{false}%
         }%
       \ifthenelse{\isundefined{\@email}}%
@@ -649,6 +649,7 @@
 	\ifempty{#6}%
 	{\quad\\}% if #6 is empty \vspace{-1.5mm}
 	{ \vspace{1.0mm}\leftline{\footnotesize{\foreach \n in {#6}{\cvtag{\n}}}}}% if #6 is not empty
+	\vspace{2.0mm}
 }
 
 % Define an environment for cvsubentry
@@ -747,19 +748,23 @@
 % Define a title of the cover letter
 % Usage: \makelettertitle
 \newcommand*{\makelettertitle}{%
-  \vspace{8.4mm}
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \recipienttitlestyle{\@recipientname} & \letterdatestyle{\@letterdate}
-  \end{tabular*}
-  \begin{singlespace}
-    \recipientaddressstyle{\@recipientaddress} \\\\
-  \end{singlespace}
-  \ifthenelse{\isundefined{\@lettertitle}}
-    {}
-    {\lettertitlestyle{\@lettertitle} \\}
-  \lettertextstyle{\@letteropening}
+	\vspace{8.0mm}
+	\setlength\tabcolsep{0pt}
+	\setlength{\extrarowheight}{0pt}
+	\recipienttitlestyle{\@recipientname} 
+	\vspace{-0.2cm}
+	\begin{singlespace}
+		\recipientaddressstyle{\@recipientaddress} \\
+	\end{singlespace}
+	\begin{flushright}
+		\vspace{-0.5cm}
+		\textbf{\letterdatestyle{\@letterdate}}
+		\vspace{0.5cm}
+	\end{flushright}
+	\ifthenelse{\isundefined{\@lettertitle}}
+	{}
+	{\lettertitlestyle{\@lettertitle} \\}
+	\lettertextstyle{\@letteropening}
 }
 
 % Define a closing of the cover letter
@@ -773,7 +778,7 @@
     {\\}
     {%
       \\\\
-      \letterenclosurestyle{\@letterenclname\\ \@letterenclosure} \\
+      \letterenclosurestyle{\@letterenclname\\ \@letterenclosure} 
     }
 }
 

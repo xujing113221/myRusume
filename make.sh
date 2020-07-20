@@ -1,24 +1,33 @@
 #!/bin/bash
 
 clear
-job_name=""
+
 cover_in_de="coverletter_de"
 cover_out_de="JingXu_Anschreiben_2020.pdf"
 
-cmd=
+resume_in_de="resume_de"
+resume_out_de="JingXu_Lebenslauf_2020.pdf"
 
-getCoverInfo(){
+job_name=
+cmd=
+resumeCmd=
+
+getInfo(){
     # clear
     cmd=""
+    job_name=""
+    resumeCmd=""
 
     echo "=== Please tell me the name of you applicated Job:"
-    read job
-    cmd="\newcommand{\applicatename}{${job}} ${cmd}"
+    read job_name
+    echo ""
 
     echo "=== Please tell me the information of your applicated Company:"
     read -p "Name: " comname
     read -p "Address: " addr
     read -p "Postcode, location: " loc
+    echo ""
+
     
     echo "=== Please Choose the following options to tell me the Recipient:"
     echo -e "\t1. Sehr geehrte Damen und Herren,"
@@ -29,12 +38,20 @@ getCoverInfo(){
     lettertitle="Sehr geehrte Damen und Herren,"
     if [ $num -eq 2 ]
     then
-    read -p "Tell me the name:" hrname
+    read -p "Tell me the name: " hrname
     lettertitle="Sehr geehrter Herr $hrname"
     elif [ $num -eq 3 ]
     then
-    read -p "Tell me the name:" hrname
+    read -p "Tell me the name: " hrname
     lettertitle="Sehr geehrter Herr $hrname"
+    fi
+
+    echo ""
+
+    if [ -n "$job_name" ]
+    then
+        cmd="\newcommand{\applicatename}{${job_name}} ${cmd}"
+        resumeCmd="\newcommand{\applicatename}{${job_name}}"
     fi
 
     cmd="\newcommand{\letterbegin}{${lettertitle}} ${cmd}"
@@ -57,17 +74,31 @@ getCoverInfo(){
 # Praktikant*in Embedded Softwareentwicklung für Brandmeldesysteme
 #  Bosch Gruppe
 # Grasbrunn bei München
-# job_name="\newcommand{\companyaddress}{${company_addr}}"
-# echo $job_name
-getCoverInfo
+
+
+start(){
+    getInfo
+    echo "=== Please check your inputs!"
+    read -p "If wrong, input 1. If right, input any key: " flag
+    echo ""
+
+    if [ $flag -eq 1 ]
+    then
+        start
+    fi
+}
+
+start
 coverCmd="${cmd} \input{${cover_in_de}}"
+resumeCmd="${resumeCmd} \input{${resume_in_de}}"
 
 lualatex -synctex=1 -interaction=nonstopmode $coverCmd
 mv "${cover_in_de}.pdf" $cover_out_de
 
+lualatex -synctex=1 -interaction=nonstopmode $resumeCmd
+mv "${resume_in_de}.pdf" $resume_out_de
+
 make clean
 
-# funWithReturn
-# echo "输入的两个数字之和为 $? !"
 
 
