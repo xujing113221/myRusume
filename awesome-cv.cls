@@ -231,7 +231,7 @@
 \newcommand*{\lettersectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
 \newcommand*{\recipientaddressstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\recipienttitlestyle}[1]{{\fontsize{11pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\lettertitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\bfseries\color{darktext} \underline{#1}}}
+\newcommand*{\lettertitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\bfseries\color{darktext}{#1}}} %\underline{#1}}}
 \newcommand*{\letterdatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\lettertextstyle}{\fontsize{10pt}{1.4em}\bodyfontlight\upshape\color{graytext}}
 \newcommand*{\letternamestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
@@ -361,6 +361,9 @@
 % Defines the title for letter (cover letter only, optional)
 % Usage: \lettertitle{<title>}
 \newcommand*{\lettertitle}[1]{\def\@lettertitle{#1}}
+
+% 定义签名的命令
+\newcommand*{\signature}[3]{\def\@signaturepic{#1}\def\@signaturelocation{#2}\def\@signaturedate{#3}}
 
 % Defines the date for letter (cover letter only)
 % Usage: \letterdate{<date>}
@@ -607,10 +610,12 @@
 % Render a skill in the skills environment
 % Usage: \skill{<skill>}{<level>}
 \newcommand\skill[2]{
-	\textbf{#1}    & \foreach \x in {1,...,5}{{\color{accentcolor!80} \ifnumgreater{\x}{#2}{\faCircleThin}{\faCircle}}\enspace } \\
+	\textbf{#1}    &   {#2}  \\
+	%\foreach \x in {1,...,5}{{\color{accentcolor!80} \ifnumgreater{\x}{#2}{\faCircleThin}{\faCircle}}\enspace } \\
 }
 
 \newcommand*\twocolumnsection[2]{
+	\vspace{-3.0mm}
 	\begin{minipage}[t]{\dimexpr(\linewidth/2) - 3em}
 		#1
 	\end{minipage}
@@ -618,6 +623,7 @@
 	\begin{minipage}[t]{\dimexpr(\linewidth/2) - 3em}
 		#2
 	\end{minipage}
+	\vspace{1.0mm}
 }
 
 % Create a tag
@@ -758,26 +764,31 @@
 	\end{singlespace}
 	\begin{flushright}
 		\vspace{-1.0cm}
-		\textbf{\letterdatestyle{\@letterdate}}
+		\textbf{\letterdatestyle{\@letterdate}
+		\vspace{2.5ex}}
 	\end{flushright}
 	\ifthenelse{\isundefined{\@lettertitle}}
-	{}
-	{\lettertitlestyle{\@lettertitle} \\}
-	\lettertextstyle{\@letteropening}
+	{}{\lettertitlestyle{\@lettertitle} 
+		\vspace{1ex}\\\\}
+	{\lettertextstyle{\@letteropening}}
+}
+
+% 写下签名
+\newcommand*{\makesignature}{
+\includegraphics[width=3cm]{\@signaturepic}\\
+\lettertextstyle{\@signaturelocation,  \@signaturedate}
 }
 
 % Define a closing of the cover letter
 % Usage: \makeletterclosing
 \newcommand*{\makeletterclosing}{%
-  \vspace{3.4mm}
-  \lettertextstyle{\@letterclosing} \\\\
-  \includegraphics[width=3cm]{signature}\\
-  \lettertextstyle{Hannover, \today}
+  \vspace{-3ex}
+  \lettertextstyle{\@letterclosing} 
+  
+ \makesignature
   \ifthenelse{\isundefined{\@letterenclosure}}
     {\\}
-    {%
-      \\\\
+    {\\\\
       \letterenclosurestyle{\@letterenclname\\ \@letterenclosure} 
     }
 }
-
