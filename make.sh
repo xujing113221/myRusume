@@ -32,7 +32,7 @@ function getInfo(){
 
     echo "=== Please tell me the information of your applicated Company:"
     read -p "Recipient: " recname
-    read -p "Name: " comname
+    read -p "Company: " comname
     read -p "Address: " addr
     read -p "Postcode, location: " loc
     echo ""
