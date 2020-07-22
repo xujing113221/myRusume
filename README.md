@@ -11,7 +11,6 @@ I edited my resume and cover letter using the template form  [posquit0/Awesome-C
 
 + Create Makefile and shell script, the resume and the cover letter can be created automatically and quickly.
 
-
 ### How to use it
 
 #### Methode 1: use Makefile
@@ -65,3 +64,11 @@ If wrong, input 1. If right, input any key:
 ```
 
 Because i writed this file `make.sh` in Max OS, so maybe it doesn't work in Windows. 
+
+### Example
+
+#### Resume
+![resume](example/resume.png)
+
+#### Cover letter
+![coverletter](example/coverletter.png)
