@@ -12,7 +12,7 @@ RESUMEEN_OUT=JingXu_CV_2020
 
 OUTPUT="output/"
 
-.PHONY: cover_de resume_de clean depclean 
+.PHONY: cover_de resume_de cover_en resume_en  cover_resume_de  cover_resume_en all clean depclean 
 
 #-----------------------------------------------------------
 # cover_de
@@ -80,5 +80,6 @@ clean:
 
 
 depclean: clean
-	-@rm -f \
-		*.pdf
+	-@rm -rf \
+		*.pdf \
+		${OUTPUT}

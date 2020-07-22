@@ -8,5 +8,6 @@
 *.xml 
 *.gz 
 *.pdf
+*.log
 .DS_Store
 output/

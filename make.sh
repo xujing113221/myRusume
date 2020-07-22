@@ -2,17 +2,19 @@
 
 clear
 
+output="output/"
+
 cover_in_de="coverletter_de"
-cover_out_de="output/JingXu_Anschreiben_2020.pdf"
+cover_out_de="${output}JingXu_Anschreiben_2020.pdf"
 
 resume_in_de="resume_de"
-resume_out_de="output/JingXu_Lebenslauf_2020.pdf"
+resume_out_de="${output}JingXu_Lebenslauf_2020.pdf"
 
 cover_in_en="coverletter_en"
-cover_out_en="output/JingXu_Motivation_2020.pdf"
+cover_out_en="${output}JingXu_Motivation_2020.pdf"
 
 resume_in_en="resume_en"
-resume_out_en="output/JingXu_CV_2020.pdf"
+resume_out_en="${output}JingXu_CV_2020.pdf"
 
 coverCmd_de=
 coverCmd_en=
@@ -146,6 +148,8 @@ function start(){
     fi
 }
 
+rm -rf $output
+mkdir $output
 start
 make clean
 
