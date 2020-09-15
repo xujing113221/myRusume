@@ -11,3 +11,5 @@
 *.log
 .DS_Store
 output/
+resume_de/__latexindent_temp.tex
+__latexindent_temp.tex

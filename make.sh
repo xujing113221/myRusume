@@ -153,4 +153,6 @@ mkdir $output
 start
 make clean
 
+open $output
+
 
